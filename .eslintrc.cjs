@@ -33,6 +33,21 @@ module.exports = {
         ts: 'never',
         tsx: 'never'
       }
+    ],
+    'import/prefer-default-export': 0,
+    'import/order': [
+      'error',
+      {
+        groups: [
+          ['builtin', 'external'],
+          'internal',
+          ['parent', 'sibling'],
+          'index',
+          'type',
+          'object',
+          'unknown'
+        ]
+      }
     ]
   }
 }
