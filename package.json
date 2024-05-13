@@ -11,7 +11,9 @@
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "lint:style": "stylelint \"**/*.{vue,less,postcss,css,scss}\"  --fix --cache --cache-location node_modules/.cache/stylelint/",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "prepare": "husky install",
+    "lint:staged": "lint-staged"
   },
   "dependencies": {
     "pinia": "^2.1.7",
@@ -32,6 +34,8 @@
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-vue": "^9.23.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.2",
     "npm-run-all2": "^6.1.2",
     "postcss": "^8.4.38",
     "postcss-html": "^1.7.0",
@@ -47,5 +51,23 @@
     "vite": "^5.2.8",
     "vite-plugin-vue-devtools": "^7.0.25",
     "vue-tsc": "^2.0.11"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{cjs,json}": [
+      "prettier --write"
+    ],
+    "*.{vue,jsx,tsx,html}": [
+      "eslint --fix",
+      "stylelint --fix --allow-empty-input --cache --cache-location node_modules/.cache/stylelint/",
+      "prettier --write"
+    ],
+    "*.{css,scss,less,postcss}": [
+      "stylelint --fix --allow-empty-input --cache --cache-location node_modules/.cache/stylelint/",
+      "prettier --write"
+    ]
   }
 }
