@@ -8,7 +8,8 @@ module.exports = {
     'eslint:recommended',
     '@vue/eslint-config-typescript',
     'airbnb-base',
-    '@vue/eslint-config-prettier/skip-formatting'
+    '@vue/eslint-config-prettier/skip-formatting',
+    './.eslintrc-auto-import.json'
   ],
   parserOptions: {
     ecmaVersion: 'latest'
