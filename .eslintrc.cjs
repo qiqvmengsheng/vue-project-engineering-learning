@@ -22,7 +22,12 @@ module.exports = {
   },
   rules: {
     'import/no-extraneous-dependencies': 0,
-    'vue/multi-word-component-names': 1,
+    'vue/multi-word-component-names': [
+      'error',
+      {
+        ignores: ['index', 'main'] // 需要忽略的组件名
+      }
+    ],
     'no-unused-vars': 1,
     'import/extensions': [
       'error',
